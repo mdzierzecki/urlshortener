@@ -2,11 +2,50 @@
 {% load static %}
 
 {% block content %}
+<!-- Page Content-->
+            <div class="page-content">
 
-<form method="post">{% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Send message">
-</form>
+                <div class="container-fluid">
+                    <!-- Page-Title -->
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="page-title-box">
+                                <div class="float-right">
+
+                                </div><!--end /div-->
+                                <center><h4 class="page-title">URL cutter</h4></center>
+                            </div><!--end page-title-box-->
+                        </div><!--end col-->
+                    </div><!--end row-->
+                    <!-- end page title end breadcrumb -->
+                    <div class="row">
+                        <div class="col-10">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="form-group">
+                                            <div class="input-group">
+                                                <form method="post">{% csrf_token %}
+                                                <div class="input-group">
+                                                    {{ form.target_url }}
+<!--                                                <input type="text" class="form-control" placeholder="Search for..." aria-label="Search for...">-->
+                                                <span class="input-group-append">
+                                                    <input class="btn btn-primary" type="submit" value="Cut!"></input>
+                                                </span>
+                                            </div>
+                                                </form>
+
+                                            </div>
+                                        </div>
+
+                                </div><!--end card-body-->
+                            </div><!--end card-->
+                        </div> <!--end col-->
+                    </div><!--end row-->
+
+                </div><!-- container -->
+            </div>
+            <!-- end page content -->
+
 
 {% endblock %}
 

@@ -1,15 +1,78 @@
 {% load static %}
+
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Url Shortener</title>
+   <head>
+      <meta charset="utf-8" />
+      <title>Cut your URL!</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta content="Cut your url!" name="description" />
+      <!-- App favicon -->
+      <link rel="shortcut icon" href="{% static 'assets/images/favicon.ico' %}">
+      <link href="{% static '/assets/plugins/dropify/css/dropify.min.css' %}" rel="stylesheet">
+      {% block style %}
+      {% endblock %}
+      <!-- App css -->
+      <link href="{% static '/assets/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
+      <link href="{% static '/assets/css/icons.css' %}" rel="stylesheet" type="text/css" />
+      <link href="{% static '/assets/css/metisMenu.min.css' %}" rel="stylesheet" type="text/css" />
+      <link href="{% static '/assets/css/style.css' %}" rel="stylesheet" type="text/css" />
+   </head>
+   <body>
+      <!-- Top Bar Start -->
+      <!-- Top Bar Start -->
 
+      <!-- Top Bar End -->
+      <div class="page-wrapper">
+         <!-- Page Content-->
+         <div class="page-content">
+            <div class="row">
+               <div class="col">
+               </div>
+               <div class="col-6">
+                  {% if messages %}
+                      {% for message in messages %}
+                      {% if message.tags == "success" %}
+                          <div class="alert alert-secondary border-0" role="alert">
+                          {{ message }}
+                          </div>
+                      {% endif %}
+                      {% if message.tags == "error" %}
+                          <div class="alert alert-info alert-dismissible fade show" role="alert">
+                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                             <span aria-hidden="true"><i class="mdi mdi-close"></i></span>
+                             </button>
+                             {{ message }}
+                          </div>
+                      {% endif %}
+                  {% endfor %}
+                  {% endif %}
+               </div>
+               <div class="col">
+               </div>
+            </div>
+            </br>
 
-</head>
-<body>
-<h1>URL SHORTENER</h1>
+            {% block content %}
 
-{% block content %}
-{% endblock %}
-</body>
+            {% endblock %}
+         </div>
+         <!-- end page content -->
+         <footer class="footer text-center text-sm-left">
+            <div class="boxed-footer">
+               &copy; 2020 UrlCutter
+            </div>
+         </footer>
+         <!--end footer-->
+      </div>
+      <!-- end page-wrapper -->
+      <!-- jQuery  -->
+      <script src="{% static '/assets/js/jquery.min.js' %}"></script>
+      <script src="{% static '/assets/js/bootstrap.bundle.min.js' %}"></script>
+
+      {% block scripts %}
+      {% endblock %}
+      <!-- App js -->
+      <script src="{% static '/assets/js/app.js' %}"></script>
+
+   </body>
 </html>
