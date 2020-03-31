@@ -1,6 +1,6 @@
 from django.http import HttpResponseRedirect
-from django.shortcuts import render, get_object_or_404, reverse, redirect
-from django.views.generic import FormView, CreateView
+from django.shortcuts import render,  reverse, redirect
+from django.views.generic import CreateView
 from .forms import ShorteningForm
 from .models import Url
 
@@ -13,11 +13,12 @@ class ShorteningView(CreateView):
     def form_valid(self, form):
         obj = form.save(commit=False)
         http_host = self.request.META['HTTP_HOST']
-        obj.save(http_host)
+        obj.save()
+        Url.assign_shortcode(obj, http_host)
         return redirect(reverse('shortening_result', kwargs={'shortcode': obj.shortcode}))
 
 
-def url_redirect_view(request, shortcode, *args, **kwards):
+def url_redirect_view(request, shortcode):
     try:
         obj = Url.objects.get(shortcode=shortcode)
         return HttpResponseRedirect(obj.target_url)

@@ -10,7 +10,7 @@ class ShorteningForm(forms.ModelForm):
         model = Url
         exclude = ('shortcode', 'full_url')
         widgets = {
-            'target_url': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Paste your URL here...'}),
+            'target_url': forms.TextInput(attrs={'class': 'form-control', 'placeholder': _('Paste your URL here...')}),
         }
 
     def clean_target_url(self):
