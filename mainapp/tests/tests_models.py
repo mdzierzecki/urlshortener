@@ -2,7 +2,7 @@ from django.test import TestCase
 from mainapp.models import Url
 
 
-# python manage.py test --pattern="tests_*.py"
+# python manage.py test --pattern="tests_models.py"
 class ModelTestCase(TestCase):
     @classmethod
     def setUpTestData(cls):
