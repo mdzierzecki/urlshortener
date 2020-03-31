@@ -12,7 +12,8 @@ class ShorteningView(CreateView):
 
     def form_valid(self, form):
         obj = form.save(commit=False)
-        obj.save()
+        http_host = self.request.META['HTTP_HOST']
+        obj.save(http_host)
         return redirect(reverse('shortening_result', kwargs={'shortcode': obj.shortcode}))
 
 
@@ -24,6 +25,8 @@ def url_redirect_view(request, shortcode, *args, **kwards):
 def result(request, shortcode):
     url = Url.objects.get(shortcode=shortcode)
     context = {
-        'shortcode': url.shortcode,
+        'request': request,
+        'shortcode': url.full_url,
+
     }
     return render(request, 'result.html', context)

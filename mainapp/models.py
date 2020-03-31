@@ -8,6 +8,7 @@ import string
 class Url(models.Model):
     target_url = models.TextField(null=False, blank=False)
     shortcode = models.CharField(max_length=10, null=True, blank=True)
+    full_url = models.TextField(null=True, blank=True)
 
     created_at = models.DateTimeField(
         _("Created at"),
@@ -15,8 +16,9 @@ class Url(models.Model):
         help_text=_("When url was shortened")
     )
 
-    def save(self, *args, **kwargs):
+    def save(self, http, *args, **kwargs):
         self.shortcode = ''.join(random.choice(string.ascii_lowercase) for _ in range(10))
+        self.full_url = "{}/{}".format(http, self.shortcode)
         super(Url, self).save(*args, **kwargs)
 
     def __str__(self):
