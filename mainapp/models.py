@@ -1,7 +1,6 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
-import random
-import string
+from .utils import shortcode_generator
 
 
 # Url model
@@ -17,7 +16,7 @@ class Url(models.Model):
     )
 
     def save(self, http, *args, **kwargs):
-        self.shortcode = ''.join(random.choice(string.ascii_lowercase) for _ in range(10))
+        self.shortcode = shortcode_generator()
         self.full_url = "{}/{}".format(http, self.shortcode)
         super(Url, self).save(*args, **kwargs)
 
