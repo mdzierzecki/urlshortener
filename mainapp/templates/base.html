@@ -7,7 +7,6 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta content="Cut your url!" name="description" />
       <!-- App favicon -->
-      <link rel="shortcut icon" href="{% static 'assets/images/favicon.ico' %}">
       <link href="{% static '/assets/plugins/dropify/css/dropify.min.css' %}" rel="stylesheet">
       {% block style %}
       {% endblock %}
@@ -47,14 +46,41 @@
                   {% endfor %}
                   {% endif %}
                </div>
-               <div class="col">
-               </div>
+
             </div>
             </br>
+<!-- Page Content-->
+            <div class="page-content">
+
+                <div class="container-fluid">
+                    <!-- Page-Title -->
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="page-title-box">
+
+                                <center><h4 class="page-title">URL cutter</h4></center>
+                            </div><!--end page-title-box-->
+                        </div><!--end col-->
+                    </div><!--end row-->
+                    <!-- end page title end breadcrumb -->
+                    <div class="row" style="text-align: center">
+                         <div class="col-md-6 offset-md-3">
+                            <div class="card">
+                                <div class="card-body">
 
             {% block content %}
 
             {% endblock %}
+
+
+                                </div><!--end card-body-->
+                            </div><!--end card-->
+                        </div> <!--end col-->
+                    </div><!--end row-->
+
+                </div><!-- container -->
+            </div>
+            <!-- end page content -->
          </div>
          <!-- end page content -->
          <footer class="footer text-center text-sm-left">
@@ -68,11 +94,16 @@
       <!-- jQuery  -->
       <script src="{% static '/assets/js/jquery.min.js' %}"></script>
       <script src="{% static '/assets/js/bootstrap.bundle.min.js' %}"></script>
-
+      <script src="{% static '/assets/js/metisMenu.min.js' %}"></script>
+      <script src="{% static '/assets/js/waves.min.js' %}"></script>
+      <script src="{% static '/assets/js/jquery.slimscroll.min.js' %}"></script>
+      <script src="{% static '/assets/plugins/dropify/js/dropify.min.js' %}"></script>
       {% block scripts %}
       {% endblock %}
       <!-- App js -->
       <script src="{% static '/assets/js/app.js' %}"></script>
-
+      <script>
+         $('.dropify').dropify();
+      </script>
    </body>
 </html>
