@@ -21,4 +21,4 @@ class Url(models.Model):
         super(Url, self).save(*args, **kwargs)
 
     def __str__(self):
-        return self.target_url
+        return "{} - {}".format(self.full_url, self.target_url)

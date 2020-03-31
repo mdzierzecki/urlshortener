@@ -15,7 +15,7 @@ def shortcode_generator(length=5):
     while not is_unique:
         shortcode = random_string(length)
         try:
-            return url.objects.get(shortcode=shortcode)
+            obj = url.objects.get(shortcode=shortcode)
             is_unique = False
         except url.DoesNotExist:
             is_unique = True
