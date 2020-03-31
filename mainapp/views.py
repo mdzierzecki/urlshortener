@@ -18,8 +18,11 @@ class ShorteningView(CreateView):
 
 
 def url_redirect_view(request, shortcode, *args, **kwards):
-    obj = get_object_or_404(Url, shortcode=shortcode)
-    return HttpResponseRedirect(obj.target_url)
+    try:
+        obj = Url.objects.get(shortcode=shortcode)
+        return HttpResponseRedirect(obj.target_url)
+    except Url.DoesNotExist:
+        return render(request, '404.html')
 
 
 def result(request, shortcode):
