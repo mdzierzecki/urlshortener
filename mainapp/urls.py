@@ -1,7 +1,5 @@
-from django.urls import path, re_path
-from django.conf.urls import url
+from django.urls import path
 from .views import ShorteningView, result, url_redirect_view
-from django.contrib import admin
 
 
 urlpatterns = [

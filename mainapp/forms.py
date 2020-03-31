@@ -15,6 +15,6 @@ class ShorteningForm(forms.ModelForm):
 
     def clean_target_url(self):
         url_inserted = self.cleaned_data['target_url']
-        if not is_url(url_inserted): raise forms.ValidationError_("You have to provide proper URL adress")
+        if not is_url(url_inserted): raise forms.ValidationError("You have to provide proper URL adress")
 
         return url_inserted
