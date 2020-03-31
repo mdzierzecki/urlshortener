@@ -1,5 +1,6 @@
 from django import forms
 from .models import Url
+from .utils import is_url
 
 
 class ShorteningForm(forms.ModelForm):
@@ -10,3 +11,8 @@ class ShorteningForm(forms.ModelForm):
             'target_url': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Paste your URL here...'}),
         }
 
+    def clean_target_url(self):
+        url_inserted = self.cleaned_data['target_url']
+        if not is_url(url_inserted): raise forms.ValidationError("You have to provide proper URL adress")
+
+        return url_inserted
