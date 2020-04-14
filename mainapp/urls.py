@@ -1,11 +1,11 @@
 from django.urls import path
-from .views import ShorteningView, result, url_redirect_view
+from . import views
 
 
 urlpatterns = [
 
-    path('', ShorteningView.as_view(), name='homepage_view'),
-    path('shorted/<shortcode>', result, name='shortening_result'),
-    path('<str:shortcode>', url_redirect_view, name='check')
+    path('', views.ShorteningView.as_view(), name='homepage_view'),
+    path('shorted/<shortcode>', views.result, name='shortening_result'),
+    path('<str:shortcode>', views.url_redirect_view, name='check')
 
 ]
