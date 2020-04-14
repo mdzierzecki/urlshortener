@@ -1,5 +1,7 @@
 # urlshortener
 
-It is an Django app for recruitment purposes (JMR Technologies Sp. z o.o.)
+It is simple Python/Django app, which provides URL Cutter, an app for cutting long URL addresses.
 
-Mateusz Dzierzęcki
+You can find it here:  http://167.172.175.160
+
+
