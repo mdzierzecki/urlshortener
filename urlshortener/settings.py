@@ -73,17 +73,17 @@ WSGI_APPLICATION = 'urlshortener.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'shortenerdb',
-        'USER': 'shortenerusr',
-        'PASSWORD': 'shortenerpass222',
-        'HOST': 'localhost',
-        'PORT': '',
-    },
-}
+#
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'shortenerdb',
+#         'USER': 'shortenerusr',
+#         'PASSWORD': 'shortenerpass222',
+#         'HOST': 'localhost',
+#         'PORT': '',
+#     },
+# }
 
 
 # Password validation
